@@ -51,7 +51,7 @@ if (get('action') == "readconfig" && isset($_GET['id'])) {
   $data = array();
   $user = array();
 
-  $factory = (new Factory)->withServiceAccount('../farmr-1cc6e-firebase-adminsdk-<firebasefile>.json');
+  $factory = (new Factory)->withServiceAccount( __DIR__ . '/../farmr-63a6f-firebase-adminsdk-4f7gv-4a507ac397.json');
   $auth = $factory->createAuth();
 
   $token = $_POST['token'];
@@ -152,7 +152,7 @@ if (get('action') == "readconfig" && isset($_GET['id'])) {
     echo "<script>
     //mobile
       // Simulate an HTTP redirect:
-      window.location.replace('https://" . PREFIX . "farmr.net/index.html');     
+      window.location.replace('https://" . PREFIX . "farmr2.net/index.html');     
     </script>";
   }
 } else {

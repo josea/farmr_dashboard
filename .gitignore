@@ -1,0 +1,10 @@
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+composer.json
+composer.lock
+pubspec.lock
+macos/
+vendor/
+farmr-63a6f-firebase-adminsdk-4f7gv-4a507ac397.json

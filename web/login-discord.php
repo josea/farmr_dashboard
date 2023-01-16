@@ -39,7 +39,7 @@ if (get('code')) {
 
   $discordUser = apiRequest($apiURLBase, $token->access_token);
 
-  $factory = (new Factory)->withServiceAccount('../farmr-1cc6e-firebase-adminsdk-<firebasefile>.json');
+  $factory = (new Factory)->withServiceAccount('../farmr-63a6f-firebase-adminsdk-4f7gv-4a507ac397.json');
   $auth = $factory->createAuth();
 
   //checks if user exists
@@ -73,7 +73,7 @@ if (get('code')) {
   echo "<script>
       //mobile
         // Simulate an HTTP redirect:
-        window.location.replace('https://" . PREFIX . "farmr.net/index.html');     
+        window.location.replace('https://" . PREFIX . "farmr2.net/index.html');     
       </script>";
 }
 

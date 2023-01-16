@@ -33,8 +33,8 @@ dependencies:
   provider: ^5.0.0
   farmr_client:
     git: 
-      url: https://github.com/gilnobrega/farmr
-      ref: 38778d1bc338b34b84e9d95039384a5b04c6a7fa
+      url: https://github.com/josea/farmr
+      ref: 5ffa9acf94a690e2c9c2677688c0fc76cea427bf
   universal_io: ^2.0.4
   universal_html: ^2.0.8
   shared_preferences: ^2.0.6
@@ -53,8 +53,8 @@ dependencies:
       ref: cacb4c4a2ab40aa601c951c6a12fccccf20d0b65
   after_layout: ^1.1.0
   group_button: ^2.3.0
-  firebase_auth: ^2.0.0
-  firebase_core: ^1.3.0
+  firebase_auth: ^4.0.0
+  firebase_core: 2.2.0
   universal_disk_space: ^0.2.2
   expandable: ^5.0.1
   clipboard: ^0.1.3

@@ -47,7 +47,7 @@ class SettingsController extends ChangeNotifier {
 
   void setTheme(String newThemeName, BuildContext context) {
     currentThemeName = newThemeName;
-    ThemeSwitcher.of(context)?.changeTheme(
+    ThemeSwitcher.of(context).changeTheme(
         theme: selectTheme(
             context,
             availableThemes[currentThemeName] ??

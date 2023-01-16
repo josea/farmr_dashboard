@@ -22,10 +22,29 @@ if (isset($_POST['id']) && isset($_POST['data'])) {
         $command = " UPDATE farms SET publicAPI=" . $publicAPI . ", data='" . $data . "' WHERE id='" . $id . "' AND user<>'none' AND lastUpdated < DATE_SUB(NOW(), INTERVAL 1 MINUTE) LIMIT 1;";
         $result = $conn->query($command);
 
+        // $f = fopen("log.txt", "w");
+        // fwrite($f, 'Updated farms' . PHP_EOL);
+       
+
         //if one of these variables are set, then it needs to find user id 
         if (isset($_POST['balance']) || isset($_POST['coldBalance']) || isset($_POST['lastPlot']) || isset($_POST['notifyOffline']) || isset($_POST['isFarming'])) {
             $user = "none";
 
+            // $balanceStr = isset($_POST['balance']) ? $_POST['balance'] : -1; 
+            // $coldBalanceStr = isset($_POST['coldBalance']) ? $_POST['coldBalance'] : -1; 
+            // $lastPlotStr = isset($_POST['lastPlot']) ? $_POST['lastPlot'] : -1; 
+            // $notifyOfflineStr = isset($_POST['notifyOffline']) ? $_POST['notifyOffline'] : -1; 
+            // $isFarmingStr = isset($_POST['isFarming']) ? $_POST['isFarming'] : -1; 
+            // $drivesStr = isset($_POST['drives']) ? $_POST['drives'] : -1; 
+
+            // fwrite($f, 'Going to update more detail ' . PHP_EOL);
+            // fwrite($f, '    Balance ' . $balanceStr . PHP_EOL);
+            // fwrite($f, '    coldBalance ' . $coldBalanceStr . PHP_EOL);
+            // fwrite($f, '    lastplot ' . $lastPlotStr . PHP_EOL);
+            // fwrite($f, '    notifyOffline ' . $notifyOfflineStr . PHP_EOL);
+            // fwrite($f, '    isFarming ' . $isFarmingStr . PHP_EOL);
+            // fwrite($f, '    drives ' . $drivesStr . PHP_EOL);
+            
             //searches for user id which is linked to client id, so that the discord bot can message that person
             $getUser = " SELECT user from farms WHERE id='" . $id . "'";
             $result2 = $conn->query($getUser);
@@ -37,6 +56,7 @@ if (isset($_POST['id']) && isset($_POST['data'])) {
             if (isset($_POST['lastPlot']) && $_POST['lastPlot'] != "0") {
 
                 $lastPlot = $conn->real_escape_string($_POST['lastPlot']);
+                // fwrite($f, 'Select lastplot' . PHP_EOL);
 
                 $checkIfPlots = "SELECT lastplot from lastplots WHERE id='" . $id . "';";
                 $result3 = $conn->query($checkIfPlots);
@@ -240,10 +260,14 @@ if (isset($_POST['id']) && isset($_POST['data'])) {
                 }
             }
         }
+        // fclose($f);
     } else {
         echo "Not linked";
 
         $command = " INSERT INTO farms (id, data, user, publicAPI) VALUES ('" . $id . "','" . $data . "', 'none', " . $publicAPI . ") ;";
+       // $f = fopen("log.txt", "w");
+       // fwrite($f, 'Not linked\n' . $command);
+       // fclose($f);
         $result = $conn->query($command);
     }
 }

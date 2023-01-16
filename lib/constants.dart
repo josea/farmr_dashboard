@@ -2,7 +2,7 @@ import 'package:farmr_dashboard/controllers/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-const String mainURL = "https://farmr.net";
+const String mainURL = "http://farmr2.net";
 const debug = false;
 
 const bgColor = Color(0xFF1B2128);
@@ -25,7 +25,7 @@ ThemeData selectTheme(
       scaffoldBackgroundColor: simpleTheme.backgroundColor,
       accentColor: simpleTheme.accentColor,
       focusColor: simpleTheme.accentColor,
-      cursorColor: simpleTheme.accentColor,
+      //cursorColor: simpleTheme.accentColor,
       hintColor: simpleTheme.textColor,
       textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
           .apply(

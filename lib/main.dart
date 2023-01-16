@@ -3,6 +3,7 @@ import 'package:farmr_dashboard/controllers/menu_controller.dart';
 import 'package:farmr_dashboard/controllers/indexes_controller.dart';
 import 'package:farmr_dashboard/controllers/login_controller.dart';
 import 'package:farmr_dashboard/controllers/settings_controller.dart';
+import 'package:farmr_dashboard/firebaseOptions.dart';
 import 'package:farmr_dashboard/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portal/flutter_portal.dart';
@@ -11,8 +12,13 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(options: firebaseOptions);
+
   runApp(MyApp());
 }
 

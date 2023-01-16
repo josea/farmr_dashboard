@@ -170,7 +170,7 @@ class LoginController extends ChangeNotifier {
         ? response.body.trim()
         : io.File("test.txt").readAsStringSync();
 
-    if (mainURL.contains("dev.farmr.net")) {
+    if (mainURL.contains("dev.farmr2.net")) {
       print(contents);
       print("token: " + (token ?? "none"));
     }
