@@ -24,3 +24,7 @@ lib/firebaseOptions must be completed with your own values.
 web/db.php must be completed with your own values.
 
 web/oauth.php must be completed with your own values. 
+
+To create an IIS certificate, in Powershell:
+ 
+ New-SelfSignedCertificate -DnsName farmr2.net, localhost -CertStoreLocation cert:\LocalMachine\My -notafter (get-date).addyears(10)
