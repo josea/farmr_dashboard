@@ -23,7 +23,8 @@ create table farms (
  create table balances (id char(200) primary key
                         , balance varchar(200));
                         
-create table notifications ( 
+create table notifications (
+       notificationID int AUTO_INCREMENT primary key  ,
        user varchar(200),
        type varchar(200),
        name varchar(200)) ;                               
