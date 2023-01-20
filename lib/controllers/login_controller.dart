@@ -286,7 +286,8 @@ class LoginController extends ChangeNotifier {
           entry.key,
           () => Stats(
               entry.value,
-              price.rates["USD"],
+              //price.rates["USD"],
+              price.coinRates[entry.value.crypto.toLowerCase()]!["USD"],
               (entry.value.crypto == "xch")
                   ? netspace
                   : (entry.value is Farmer)
@@ -320,7 +321,8 @@ class LoginController extends ChangeNotifier {
     harvester.currency = currentCurrency;
     stats = Stats(
         harvester,
-        price.rates[currentCurrency],
+        //price.rates[currentCurrency],
+        price.coinRates[harvester.crypto.toLowerCase()]![currentCurrency],
         (harvester.crypto == "xch")
             ? netspace
             : (headFarmers[harvester.crypto] is Farmer)
@@ -351,6 +353,8 @@ class LoginController extends ChangeNotifier {
         harvester: harvester,
         stats: stats!,
         netspace: netspace,
-        rate: price.rates[harvester.currency]!);
+        //rate: price.rates[harvester.currency]!);
+        rate: price
+            .coinRates[harvester.crypto.toLowerCase()]![harvester.currency]!);
   }
 }

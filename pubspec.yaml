@@ -34,7 +34,7 @@ dependencies:
   farmr_client:
     git: 
       url: https://github.com/josea/farmr
-      ref: 5ffa9acf94a690e2c9c2677688c0fc76cea427bf
+      ref: 01fb30bedf6fff79e92c0d7be37590b1fff826eb
   universal_io: ^2.0.4
   universal_html: ^2.0.8
   shared_preferences: ^2.0.6
