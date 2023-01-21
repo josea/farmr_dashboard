@@ -77,11 +77,10 @@ class OverviewListState extends State<OverviewList>
           headFarmer.status
         ],
         headFarmer.balance,
-        //   (headFarmer.coldNetBalance > 0)
-        //     ? headFarmer.coldNetBalance
-        //   : headFarmer.walletBalance,
-        headFarmer.walletBalance + headFarmer.coldNetBalance,
-        headFarmer.walletBalanceFiat + headFarmer.coldNetBalanceFiat,
+        (headFarmer.walletBalance > 0 ? headFarmer.walletBalance : 0) +
+            (headFarmer.coldNetBalance > 0 ? headFarmer.coldNetBalance : 0),
+        (headFarmer.walletBalance > 0 ? headFarmer.walletBalanceFiat : 0) +
+            (headFarmer.coldNetBalance > 0 ? headFarmer.coldNetBalanceFiat : 0),
         (headFarmer.syncedBlockHeight > 0)
             ? headFarmer.syncedBlockHeight
             : "N/A",
