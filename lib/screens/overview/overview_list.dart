@@ -77,9 +77,11 @@ class OverviewListState extends State<OverviewList>
           headFarmer.status
         ],
         headFarmer.balance,
-        (headFarmer.coldNetBalance > 0)
-            ? headFarmer.coldNetBalance
-            : headFarmer.walletBalance,
+        //   (headFarmer.coldNetBalance > 0)
+        //     ? headFarmer.coldNetBalance
+        //   : headFarmer.walletBalance,
+        headFarmer.walletBalance + headFarmer.coldNetBalance,
+        headFarmer.walletBalanceFiat + headFarmer.coldNetBalanceFiat,
         (headFarmer.syncedBlockHeight > 0)
             ? headFarmer.syncedBlockHeight
             : "N/A",
@@ -165,7 +167,8 @@ class OverviewListState extends State<OverviewList>
                     DataColumn(label: Text("Symbol"), onSort: onSort),
                     DataColumn(label: Text("Status"), onSort: onSort),
                     DataColumn(label: Text("Farmed"), onSort: onSort),
-                    DataColumn(label: Text("Wallet"), onSort: onSort),
+                    DataColumn(label: Text("Wallets"), onSort: onSort),
+                    DataColumn(label: Text("Wallets \$"), onSort: onSort),
                     DataColumn(label: Text("Height"), onSort: onSort),
                     DataColumn(label: Text("Plots"), onSort: onSort),
                     DataColumn(label: Text("Max Resp."), onSort: onSort),
@@ -202,32 +205,34 @@ DataRow drivesDataRow(List<dynamic> row, BuildContext context) {
           ? (row[2] as double).toStringAsFixed(2) + " ${row[0].toUpperCase()}"
           : "N/A")),
 
-      //cold/hot wallet balance
+      //cold+hot wallet balance
       DataCell(Text(((row[3] as double) >= 0)
-          ? (row[3] as double).toStringAsFixed(0) + " ${row[0].toUpperCase()}"
+          ? (row[3] as double).toStringAsFixed(2) + " ${row[0].toUpperCase()}"
           : "N/A")),
+      //cold+hot wallet fiat balance
+      DataCell(Text((row[4] as double).toStringAsFixed(2) + "\$")),
       //height
-      DataCell(Text(row[4].toString())),
-      //plots length
       DataCell(Text(row[5].toString())),
+      //plots length
+      DataCell(Text(row[6].toString())),
       //response times
-      DataCell(Text((row[6] as double).toStringAsFixed(2) + "s")),
+      DataCell(Text((row[7] as double).toStringAsFixed(2) + "s")),
       //drives
-      DataCell(Text(row[7].toString())),
+      DataCell(Text(row[8].toString())),
       //etw
       DataCell(
-          Text((row[8][0] as double).toStringAsFixed(1) + " ${row[8][1]}")),
+          Text((row[9][0] as double).toStringAsFixed(1) + " ${row[9][1]}")),
 
       //effort
-      DataCell(Text(((row[9] as double) >= 0)
-          ? (row[9] as double).toStringAsFixed(1) + "%"
+      DataCell(Text(((row[10] as double) >= 0)
+          ? (row[10] as double).toStringAsFixed(1) + "%"
           : "N/A")),
 
       //edv
-      DataCell(Text((showPrecisionOrFixed((row[10] as double), 2)) +
+      DataCell(Text((showPrecisionOrFixed((row[11] as double), 2)) +
           " ${row[0].toUpperCase()}")),
       //edv dollars
-      DataCell(Text((row[11] as double).toStringAsFixed(2) + r"$")),
+      DataCell(Text((row[12] as double).toStringAsFixed(2) + r"$")),
     ],
   );
 }

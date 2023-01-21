@@ -96,9 +96,11 @@ class LoginController extends ChangeNotifier {
     rotationController.repeat();
 
     try {
-      var result = await _getHarvesters(overrideToken ??
-          (await login?.auth?.currentUser?.getIdToken()) ??
-          null);
+      var result = await _getHarvesters(
+          overrideToken ??
+              (await login?.auth?.currentUser?.getIdToken()) ??
+              null,
+          currentCurrency);
 
       price = result[0];
       netspace = result[1];
@@ -144,7 +146,7 @@ class LoginController extends ChangeNotifier {
   }
 
   //function that does all the heavy lifting must be static
-  static _getHarvesters(String? token) async {
+  static _getHarvesters(String? token, String currentCurrency) async {
     Price price;
     NetSpace netspace;
     User user;
@@ -287,7 +289,8 @@ class LoginController extends ChangeNotifier {
           () => Stats(
               entry.value,
               //price.rates["USD"],
-              price.coinRates[entry.value.crypto.toLowerCase()]!["USD"],
+              price.coinRates[entry.value.crypto.toLowerCase()]![
+                  currentCurrency],
               (entry.value.crypto == "xch")
                   ? netspace
                   : (entry.value is Farmer)
