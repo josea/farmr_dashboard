@@ -39,3 +39,8 @@ create table notifications (
         notify int , 
         name varchar(200)
         );
+		
+ create table drives (
+        id char(200) primary key, 
+        drives float
+        );		

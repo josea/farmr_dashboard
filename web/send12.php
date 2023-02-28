@@ -27,7 +27,9 @@ if (isset($_POST['id']) && isset($_POST['data'])) {
        
 
         //if one of these variables are set, then it needs to find user id 
-        if (isset($_POST['balance']) || isset($_POST['coldBalance']) || isset($_POST['lastPlot']) || isset($_POST['notifyOffline']) || isset($_POST['isFarming'])) {
+        if (isset($_POST['balance']) || isset($_POST['coldBalance']) || isset($_POST['lastPlot'])
+         || isset($_POST['notifyOffline']) || isset($_POST['isFarming'])
+         || isset($_POST['drives'])) {
             $user = "none";
 
             // $balanceStr = isset($_POST['balance']) ? $_POST['balance'] : -1; 
